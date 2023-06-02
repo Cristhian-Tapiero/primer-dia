@@ -1,0 +1,20 @@
+:root{
+  --background-color: #080B0D;
+  --font-color: #F2E8DC;
+  --font-contrast-color: #D9CCC1;
+  --contrast-color: #192126;
+}
+
+*{
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: -apple-system, BlinkMacSystemFont, sans-serif;
+}
+button{
+  appearance: none;
+  background: none;
+  border: none;
+  outline: none;
+  cursor: pointer;
+}
