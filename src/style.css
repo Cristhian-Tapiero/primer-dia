@@ -3,6 +3,8 @@
   --font-color: #F2E8DC;
   --font-contrast-color: #D9CCC1;
   --contrast-color: #192126;
+  --input-background: #D9D9D9;
+  --input-selected-background: #F2F2F2;
 }
 
 *{
@@ -17,4 +19,11 @@ button{
   border: none;
   outline: none;
   cursor: pointer;
+}
+input[type = text]{
+  appearance: none;
+  background: none;
+  border: none;
+  outline: none;
+  box-shadow: none;
 }

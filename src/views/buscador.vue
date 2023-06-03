@@ -18,18 +18,27 @@ const mapComponents = (data) =>{
 getMovies(API_URL)
 </script>
 <template>
-    <div v-for="movie in movies_map" class="movie-container">
-        <img v-bind:src="IMAGE_URL + movie[1] " alt="" class="movie-image">
-        <section class="about-movie">
-            <h1 class="title">{{ movie[0] }}</h1>
-            <p class="description"> {{ movie[2] }}</p>
-        </section>
+    <div class="movies-container">
+        <div v-for="movie in movies_map" class="movie-container">
+            <img v-bind:src="IMAGE_URL + movie[1] " loading="lazy" alt="" class="movie-image">
+            <section class="about-movie">
+                <h1 class="title">{{ movie[0] }}</h1>
+                <p class="description"> {{ movie[2] }}</p>
+            </section>
+        </div>
     </div>
 </template>
 <style scoped lang="scss">
-.movie-container{
-    margin-top: 2rem;
-    align-self: center;
+.movies-container{
+  margin-top: 3rem;
+  height: calc(100vh - 3rem);
+  overflow-y: scroll;
+  background-color: var(--background-color);
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: repeat(3,1fr);
+  grid-auto-rows: 25rem;
+  .movie-container{
     position: relative;
     width: 100%;
     height: 100%;
@@ -52,10 +61,24 @@ getMovies(API_URL)
         transition: transform 1s;
     }
     .title, .description{
-        margin-bottom: 1rem;
-        width: 90%;
+        padding: .5rem 0;
+        width: 95%;
         text-align: center;
         color: var(--font-color);
+    }
+    .description{
+        font-size: small;
+        @media (min-width: 992px) {
+            font-size: medium;
+        }
+        @media (max-width: 600px) {
+            font-size: smaller;
+        }
+    }
+    .title{
+        @media (max-width: 600px) {
+            font-size: small;
+        }
     }
     .movie-image{
         position: relative;
@@ -69,4 +92,14 @@ getMovies(API_URL)
         }
     }
 }
+  @media (min-width: 992px) {
+    grid-template-columns: repeat(5, 1fr);
+    grid-auto-rows: 30rem;
+  }
+  @media (max-width: 600px){
+    grid-template-columns: repeat(2,1fr);
+    grid-auto-rows: 15rem;
+  }
+}
+
 </style>
