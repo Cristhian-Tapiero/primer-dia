@@ -5,7 +5,7 @@
             <ul class="unordered-list">
                 <li class="list-item" @click="$router.push('/')">Descubre</li>
                 <li class="list-item" @click="$router.push('/search')">Busca</li>
-                <li class="list-item">Mas info</li>
+                <li class="list-item" @click="$router.push('/about')">Mas info</li>
             </ul>
         </section>
     </nav>
